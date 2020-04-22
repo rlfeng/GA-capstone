@@ -1,0 +1,41 @@
+
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
+
+
+<div id="ldavis_el986820647707335121611009813"></div>
+<script type="text/javascript">
+
+var ldavis_el986820647707335121611009813_data = {"mdsDat": {"x": [0.11928449934148837, -0.11928449934148837], "y": [0.0, 0.0], "topics": [1, 2], "cluster": [1, 1], "Freq": [52.49110620515527, 47.50889379484473]}, "tinfo": {"Term": ["oneplus", "galaxy", "bad", "phone", "problem", "product", "company", "buy", "android", "series", "iphone", "galaxy", "problem", "phone", "android", "iphone", "series", "buy", "company", "product", "bad", "oneplus", "oneplus", "bad", "product", "company", "buy", "series", "iphone", "android", "phone", "problem", "galaxy"], "Freq": [26.0, 32.0, 23.0, 30.0, 16.0, 10.0, 12.0, 10.0, 14.0, 10.0, 24.0, 29.038688065142026, 14.264955375877129, 24.94806081924762, 10.953031844813419, 16.27309435015195, 3.1067054362873323, 2.8864386545539205, 2.73595486141565, 1.6542867385776017, 2.622429548276937, 2.797499460585517, 23.524804424250448, 21.241733225566684, 8.462055071522446, 9.413487242052911, 7.936196689393019, 7.495582094343031, 7.896612793208673, 3.286645019171263, 5.8339970007114035, 2.3718167863653554, 3.2559244984855584], "Total": [26.0, 32.0, 23.0, 30.0, 16.0, 10.0, 12.0, 10.0, 14.0, 10.0, 24.0, 32.29461256362758, 16.636772162242483, 30.78205781995902, 14.23967686398468, 24.169707143360625, 10.602287530630363, 10.822635343946938, 12.14944210346856, 10.116341810100048, 23.86416277384362, 26.322303884835964, 26.322303884835964, 23.86416277384362, 10.116341810100048, 12.14944210346856, 10.822635343946938, 10.602287530630363, 24.169707143360625, 14.23967686398468, 30.78205781995902, 16.636772162242483, 32.29461256362758], "Category": ["Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Default", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2"], "logprob": [11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, -1.3434, -2.0543, -1.4953, -2.3184, -1.9225, -3.5785, -3.652, -3.7056, -4.2087, -3.748, -3.6833, -1.4543, -1.5564, -2.4767, -2.3702, -2.5409, -2.598, -2.5459, -3.4225, -2.8486, -3.7487, -3.4319], "loglift": [11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5383, 0.4907, 0.4344, 0.3821, 0.2489, -0.583, -0.6771, -0.8463, -1.1663, -1.5638, -1.5972, 0.6319, 0.6278, 0.5657, 0.4891, 0.434, 0.3975, -0.3744, -0.7219, -0.919, -1.2037, -1.5502]}, "token.table": {"Topic": [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2], "Freq": [0.7724894395477087, 0.21067893805846602, 0.1257115126321615, 0.8799805884251304, 0.2771968106342869, 0.7391914950247651, 0.2469249183996297, 0.7407747551988891, 0.8979825951732209, 0.09289475122481596, 0.6619856792263688, 0.3309928396131844, 0.11397178655506185, 0.9117742924404948, 0.8121614268357995, 0.1949187424405919, 0.8415093903716073, 0.1202156271959439, 0.19769992330658712, 0.7907996932263485, 0.2829578042788313, 0.6602348766506064], "Term": ["android", "android", "bad", "bad", "buy", "buy", "company", "company", "galaxy", "galaxy", "iphone", "iphone", "oneplus", "oneplus", "phone", "phone", "problem", "problem", "product", "product", "series", "series"]}, "R": 11, "lambda.step": 0.01, "plot.opts": {"xlab": "PC1", "ylab": "PC2"}, "topic.order": [1, 2]};
+
+function LDAvis_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(LDAvis) !== "undefined"){
+   // already loaded: just create the visualization
+   !function(LDAvis){
+       new LDAvis("#" + "ldavis_el986820647707335121611009813", ldavis_el986820647707335121611009813_data);
+   }(LDAvis);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/LDAvis
+   require.config({paths: {d3: "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function(){
+        new LDAvis("#" + "ldavis_el986820647707335121611009813", ldavis_el986820647707335121611009813_data);
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & LDAvis
+    LDAvis_load_lib("https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js", function(){
+         LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function(){
+                 new LDAvis("#" + "ldavis_el986820647707335121611009813", ldavis_el986820647707335121611009813_data);
+            })
+         });
+}
+</script>
