@@ -1,13 +1,22 @@
 # Capstone Project: Social media sentiment analysis 
 
-## Problem Statement
+## Summary
 
-The project aims to gather and analyze consumers’ sentiment and major feedback on the company’s brand, products and advertisement to improve a company's marketing strategy. For this project, I will focus on Samsung and its competitors (Apple and Huawei).
+Problem Statement: Traditional metrics focus on quantity (number of likes, views, clicks, comments, shares, etc) which may not reflect what consumers truly think of the product. 
 
-Traditional metrics focus on quantity (number of views, clicks, comments, shares, like, etc.) does not reflect consumers' sentiments and key thoughts. Sentiment analysis goes beyond quantitative data to the quality of the interactions between the public and brands: 
-1. Sentiment analysis provides invaluable marketing intel 
-2. A crucial part of market research 
-3. A revolution in customer support
+The project aims to gather consumers’ latest sentiments and feedback on Samsung based on Twitter and YouTube comments to guide marketing strategy.
+
+Section 1: Sentiment analysis to gather marketing intel: (Parts 2 and 4 in Github jyupter nb)
+- Brand (Samsung) vs competitors (Apple & Huawei)
+- Advertisement (Samsung’s YouTube videos)
+
+Section 2: Topic modeling to collect feedback and provide better customer support:(Parts 3a, b and c in Github jyupter nb)
+- LatentDirichletAllocation (LDA)
+- Gibbs Sampling Dirichlet Mixture Model (GSDMM) 
+- Biterm Topic Modeling (BTM)
+
+Additional:  Samsung’s stock price prediction based on sentiment analysis (Part 5 in Github jyupter nb)
+
 [Reference: https://www.forbes.com/sites/jiawertz/2018/11/30/why-sentiment-analysis-could-be-your-best-kept-marketing-secret/#76f0c3d12bbe]
 
 
@@ -36,18 +45,35 @@ VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-ba
 
 ## Topic Modeling
 ### Latent Dirichlet Allocation (LDA) 
-Dataset: Samsung, Huawei and Apple's 2500 tweets respectively
-Model: sklearn’s LDA
-Performance metric: Perplexity (degree of uncertainty, lower value is better)
+Model: sklearn’s LatentDirichletAllocation (LDA) – most popular for unsupervised analysis of text
+Performance metric: Perplexity (lower value is better), Likelihood (less negative value is better)
 Preprocessing: Cleaning and CountVectorizer (compared with TFID vectorizer)
 Optimised parameters (through gridsearch): Number of topics and learning decay
-Limitation: Insufficient amount of data (~400 negative Samsung tweets)
+Human interpretation of topics may require domain expertise
+
+Advantages:
+- Proven model on traditional documents (news and academic papers)
+- Well maintained model
+Disadvantages:
+- Not suitable for short text as LDA assumes that a text is a mixture of topics
 
 ### Gibbs Sampling Dirichlet Mixture Model (GSDMM)
-LDA’s assumption that a text is a mixture of topics is not true for Tweets
-GSDMM should perform better on Short Text Topic Modeling (STTM) task as it assumes 1 topic ↔️1 document
-Limitation: Lack of comparable performance metrics as GSDMM is less used model
-Comparison: GSDMM has a more balanced document-topic split
+Advantages:
+- Modification from LDA that assumes 1 topic ↔️1 document
+Disadvantages:
+- Less used model, lacking performance metrics
+- Loses flexibility to capture multiple topics in one document
+- Overfitting
+
+### Biterm Topic Modeling (BTM)
+Advantages:
+- Use aggregated document (entire corpus) to address sparsity issue in short text
+- Incorporate context by using word-pair co-occurrence patterns (biterm)
+Disadvantages:
+- Less used model, uses coherence score as performance metrics
+
+### Limitation in comparison
+- Lack of common performance metrics for comparison. Most literature compare the models by editing source codes to include their desired metrics. So far, no paper has compared the performance of LDA, GSDMM and BTM on Tweets using python. A few good papers compared different short text topic modeling models using java. This can be part of future work.
 
 ## Samsung stock price prediction based on YouTube sentiments
 Dataset: 40 days of Samsung Electronics stock price listed on Frankfurt Exchange & 40 days of comments collected on Samsung S20 Ultra YouTube video (about 40 data points for test and train)
@@ -61,16 +87,13 @@ Major Limitations:
 ## Conclusion
 
 Marketing insights:
-1. VADER is an easy and quick method to obtain sentiment ratings
-2. Twitter and YouTube statistics are not strongly correlated to sentiments gathered from comments
-3. Topic modeling on comments could help marketer to dig into what people think about their brand
-4. Sentiment analysis on YouTube comments provide feedback on company’s advertisement 
+- Based on the most negative tweets picked up by VADER, Samsung could improve on customer support by improving their battery lifespan, file transfer system, etc.
+- Further research on well-received Samsung YouTube advertisement video could help guide marketing effort
+- Topic modeling revealed Huawei’s relatively low sentiment score could be due to association to China’s political system and ongoing US-China trade war
 
 Limitations:
 - Lack of common performance metrics to compare different topic modeling models
-- Lack of target variable to train NLP models
-- Insufficient tweets and YouTube comments
 
 Future work:
-- Edit GSDMM source code to include performance metric – Perplexity and coherence metrics
-- Explore other STTM models like Gensim FastText
+- Edit GSDMM and BTM’s source code to include performance metric – Perplexity and coherence metrics and explore other STTM models like Gensim FastText
+
