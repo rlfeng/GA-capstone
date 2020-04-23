@@ -54,12 +54,14 @@ Human interpretation of topics may require domain expertise
 Advantages:
 - Proven model on traditional documents (news and academic papers)
 - Well maintained model
+
 Disadvantages:
 - Not suitable for short text as LDA assumes that a text is a mixture of topics
 
 ### Gibbs Sampling Dirichlet Mixture Model (GSDMM)
 Advantages:
 - Modification from LDA that assumes 1 topic ↔️1 document
+
 Disadvantages:
 - Less used model, lacking performance metrics
 - Loses flexibility to capture multiple topics in one document
@@ -69,6 +71,7 @@ Disadvantages:
 Advantages:
 - Use aggregated document (entire corpus) to address sparsity issue in short text
 - Incorporate context by using word-pair co-occurrence patterns (biterm)
+
 Disadvantages:
 - Less used model, uses coherence score as performance metrics
 
@@ -77,8 +80,11 @@ Disadvantages:
 
 ## Samsung stock price prediction based on YouTube sentiments
 Dataset: 40 days of Samsung Electronics stock price listed on Frankfurt Exchange & 40 days of comments collected on Samsung S20 Ultra YouTube video (about 40 data points for test and train)
+
 Models: 1) Linear regression, 2) logistic regression, 3) random forest regressor and 4)random forest regressor with gridsearch
+
 Results: Mostly negative R2 values
+
 Major Limitations: 
 - Samsung Electronics has many entities (chips, home appliances), not only mobile phone business
 - Stock price can be affected by earning release, covid-19, news
